@@ -1,26 +1,23 @@
 """Retreive Tweets, embeddings, and persist in the databse."""
 import basilica
 import tweepy
-from decouple import config
+from os import getenv
 from .models import DB, Tweet, User
 
-TWITTER_AUTH = tweepy.OAuthHandler(config('TWITTER_CONSUMER_KEY'),
-                                    config('TWITTER_CONSUMER_SECRET'))
-TWITTER_AUTH.set_access_token(config('TWITTER_ACCESS_TOKEN'),
-                                config('TWITTER_ACCESS_TOKEN_SECRET'))
+TWITTER_AUTH = tweepy.OAuthHandler(getenv('TWITTER_CONSUMER_KEY'), getenv('TWITTER_CONSUMER_SECRET'))
+TWITTER_AUTH.set_access_token(getenv('TWITTER_ACCESS_TOKEN'), getenv('TWITTER_ACCESS_TOKEN_SECRET'))
 TWITTER = tweepy.API(TWITTER_AUTH)
 
-BASILICA = basilica.Connection(config('BASILICA_KEY'))
+BASILICA = basilica.Connection(getenv('BASILICA_KEY'))
 
 
 def add_or_update_user(username):
     """Add or update a user and their tweets. No private user"""
     try:
         twitter_user = TWITTER.get_user(username)
-        db_user = (User.query.get(twitter_user.id) or 
-                    User(id=twitter_user.id, name=username))
+        db_user = (User.query.get(twitter_user.id) or
+                   User(id=twitter_user.id, name=username))
         DB.session.add(db_user)
-        # We want as many recent recent non-retweet/reply statuses as we can get.
         tweets = twitter_user.timeline(
             count=200, exclude_replies=True, include_rts=False,
             tweet_mode='extended', since_id=db_user.newest_tweet_id

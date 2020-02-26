@@ -1,15 +1,19 @@
 """Main application and routing logic for TwitOff"""
 # test commit after pull request.
-from decouple import config
 from flask import Flask, render_template, request
 from .models import DB, User
+#from .predict import predict_user
 from .twitter import add_or_update_user
+from os import getenv
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def create_app():
     """Create and configure an instance of the Flask applications."""
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URL')
-    app.config['ENV'] = config('ENV')
+    app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URL')
+    app.config['ENV'] = getenv('ENV')
     
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     DB.init_app(app)
@@ -23,7 +27,7 @@ def create_app():
     @app.route("/user/<name>", methods=['GET'])
     def user(name=None):
         message = ''
-        # import pdb: pdb.set_trace()
+        import pdb; pdb.set_trace()
         name = name or request.values['user_name']
         try:
             if request.method == 'POST':
