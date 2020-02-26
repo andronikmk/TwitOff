@@ -10,7 +10,7 @@ class User(DB.Model):
     newest_tweet_id = DB.Column(DB.BigInteger)
 
     def __repr__(self):
-        return '<User {}'.format(self.name) 
+        return '<User {}>'.format(self.name) 
 
 class Tweet(DB.Model):
     """Tweets."""
@@ -21,6 +21,6 @@ class Tweet(DB.Model):
     user = DB.relationship('User', backref=DB.backref('tweets', lazy=True))
 
     def __repr__(self):
-        return '<Tweet {}'.format(self.text)
+        return '<Tweet {}>'.format(self.text)
 
 
