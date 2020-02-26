@@ -23,17 +23,15 @@ def create_app():
     def user(name=None):
         message = ''
         # import pdb: pdb.set_trace()
-        # name = name or request.values['user_name']
+        name = name or request.values['user_name']
         try:
             if request.method == 'POST':
                 add_or_update_user(name)
                 message = 'User {} successfullt added!'.format(name)
             tweets = User.filter(User.name == name).one().tweets
-            pass
         except Exception as e:
             message = 'Error adding {}: {}'.format(name, e)
             tweets = []
-            pass
         return render_template('user.html', title=name, tweets=tweets,
                                              message=message)
 
