@@ -1,7 +1,9 @@
 """SQLAlchamy models for TwitOff."""
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 DB = SQLAlchemy()
+migrate = Migrate()
 
 class User(DB.Model):
     """Twitter users that we pull and analyze Tweets for."""

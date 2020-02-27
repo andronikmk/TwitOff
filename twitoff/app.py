@@ -5,6 +5,9 @@ from .predict import predict_user
 from .twitter import add_or_update_user, update_all_users
 from os import getenv
 from dotenv import load_dotenv
+#from decouple import config
+from .models import migrate
+
 
 load_dotenv()
 
@@ -15,6 +18,9 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['ENV'] = getenv('ENV')
     DB.init_app(app)
+    migrate.init_app(app, DB)
+
+    print(getenv('DATBASE_URL'))
 
     @app.route('/')
     def root():
