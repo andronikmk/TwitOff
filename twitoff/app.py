@@ -1,15 +1,15 @@
-"""Main application and routing logic for TwitOff."""
+"""Main application and routing logic for TwitOff. Use to run app from terminal: gunicorn twitoff:APP"""
 from flask import Flask, render_template, request
 from .models import DB, User
 from .predict import predict_user
 from .twitter import add_or_update_user, update_all_users
 from os import getenv
 from dotenv import load_dotenv
-#from decouple import config
 from .models import migrate
 
 
 load_dotenv()
+
 
 def create_app():
     """Create and configure a Flask application."""
