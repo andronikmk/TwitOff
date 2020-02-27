@@ -1,52 +1,77 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
-    <title>TwitOff - {{ title }}</title>
-    <link rel="stylesheet" href="https://unpkg.com/picnic"/>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
+    <!-- <style>
+      html, body, pre, code, kbd, samp {
+          font-family: "font-family you want to use";
+      }
+    </style> -->
   </head>
+  
   <body>
+    
+
     <nav>
-      <a href="/" class="brand"><span>TwitOff!</span></a>
-
-      <!-- responsive-->
-      <input id="bmenub" type="checkbox" class="show">
-      <label for="bmenub" class="burger pseudo button">Menu</label>
-
-      <div class="menu">
-        <a href="/update" class="button warning">Update Tweets</a>
-        <!-- a href="/reset" class="button error">Reset Database</a> -->
-      </div>
+      <a href="/" class="nes-text is-primary"><span>TwitOff!</span></a>
+      <a href="/update" class="nes-text is-error">Update Tweets</a>
     </nav>
+
 
     <article class="flex two" style="padding: 3em 1em;">
       {% block content %}
-      <div>
-        <h2>{{ title }}</h2>
-        <form action="/compare" method="post">
+      
+      
+      <div class="nes-container with-title">
+        <h1 class="title">Select 2 Users</h1>
+        <form action="/compare" method="post" class="nes-select is-dark">
+          
           <select name="user1">
             {% for user in users %}
             <option value="{{ user.name }}">{{ user.name }}</option>
             {% endfor %}
           </select>
+          
           <select name="user2">
             {% for user in users %}
             <option value="{{ user.name }}">{{ user.name }}</option>
             {% endfor %}
           </select>
-          <input type="text" name="tweet_text" placeholder="Tweet text to predict">
-          <input type="submit" value="Compare Users">
+          
+          <input class="nes-input" type="text" name="tweet_text" placeholder="Tweet text to predict..." style="margin-top: 8px;">
+          
+          
+          <input type="submit" value="Compare Users" class="nes-btn is-primary" style="margin-top: 13px;">
+        
         </form>
       </div>
-      <div>
-        <h2>Users</h2>
+      
+      
+      <div class="nes-container with-title" style="margin-top: 30px;">
+        <h1 class="title">Add new Users</h1>
         {% for user in users %}
-        <a href="/user/{{ user.name }}"><span class="stack">{{ user.name }}</span></a>
+        <a href="/user/{{ user.name }}" style="margin-bottom: 10px;"><span class="stack">{{ user.name }}</span></a>
         {% endfor %}
         <form action="/user" method="post">
-          <input type="text" name="user_name" placeholder="User to add">
-          <input type="submit" value="Add User">
+          <input class="nes-input" type="text" name="user_name" placeholder="User to add..." style="margin-bottom: 10px;">
+          <input type="submit" value="Add User" class="nes-btn is-warning">
         </form>
       </div>
+
+      <div class="nes-container with-title" style="margin-top: 30px;">
+        <h1 class="title">Rules of the Game.</h1>
+        <p class="nes-balloon from-left nes-pointer">
+          Add or select two new users. Enter some text and press
+          "Compare Users". Wa-hoo!
+        </p>
+        <i class="nes-mario"></i>
+      </div>
+
+      
       {% endblock %}
     </article>
   </body>
