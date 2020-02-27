@@ -16,6 +16,7 @@ python-dotenv = "*"
 scikit-learn = "*"
 requests = "*"
 flask-migrate = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
