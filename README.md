@@ -5,5 +5,6 @@ a model and NES.css as a template.
 </p>
 
 <p align="center">
+  <h2>HOME</h2>
   <img src="https://raw.githubusercontent.com/andronikmk/TwitOff/master/img/home.png">
 </p>
