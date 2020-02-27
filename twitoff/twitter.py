@@ -38,9 +38,11 @@ def add_or_update_user(username):
         DB.session.commit()
 
 def add_user(users):
+    """Add and update a list of users"""
     for user in users:
         add_or_update_user(user)
 
 def update_all_users():
+    """Update all Tweets for all Users in the User table."""
     for user in User.query.all():
         add_or_update_user(user.name)
