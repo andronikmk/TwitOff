@@ -8,3 +8,13 @@ a model and NES.css as a template.
   <h2>HOME</h2>
   <img src="https://raw.githubusercontent.com/andronikmk/TwitOff/master/img/home.png">
 </p>
+
+<p align="center">
+  <h2>PREDICTION</h2>
+  <img src="https://raw.githubusercontent.com/andronikmk/TwitOff/master/img/prediction.png">
+</p>
+
+<p align="center">
+  <h2>ADD NEW USER TWEETS</h2>
+  <img src="https://raw.githubusercontent.com/andronikmk/TwitOff/master/img/add_new_user.png">
+</p>
