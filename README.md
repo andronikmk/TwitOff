@@ -31,6 +31,6 @@ gunicorn twitoff:APP -t 120
 </p>
 
 <p align="center">
-    <h3>Predictions Page</h3>
+    <h5>Predictions Page</h5>
   <img src="https://raw.githubusercontent.com/andronikmk/TwitOff/master/img/prediction.png">
 </p>
