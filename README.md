@@ -8,6 +8,22 @@ a model and NES.css as a template.
 
 ### From source
 ```bash
+# make a local copy of directoy
 git clone https://github.com/andronikmk/TwitOff.git
+
+# cd into correct directoy
 cd TwitOff
+
+# create enviornment
+pipenv install
+
+# activate enviornment
+pipenv shell
+
+# deploy
+gunicorn twitoff:APP -t 120
 ```
+
+## Interactive U.I. made with NES-style CSS Framework.
+
+![img1](../TwitOff/img/img1.png)
