@@ -26,4 +26,4 @@ gunicorn twitoff:APP -t 120
 
 ## Interactive U.I. made with NES-style CSS Framework.
 
-![img1](../TwitOff/img/img1.png)
+![img1](../img/img1.png)
