@@ -27,10 +27,11 @@ gunicorn twitoff:APP -t 120
 ## Interactive U.I. made with NES-style CSS Framework.
 
 <p align="center">
+  <h4>Home Page</h4>
   <img src="https://raw.githubusercontent.com/andronikmk/TwitOff/master/img/img1.png">
 </p>
 
 <p align="center">
-    <h5>Predictions Page</h5>
+  <h4>Predictions Page</h4>
   <img src="https://raw.githubusercontent.com/andronikmk/TwitOff/master/img/prediction.png">
 </p>
