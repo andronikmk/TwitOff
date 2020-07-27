@@ -3,6 +3,7 @@
 
 A fun web application for comparing and predicting Tweets. Using logistic regression as 
 a model and NES.css as a template.
+<<<<<<< HEAD
 
 ## Installation
 
@@ -26,4 +27,7 @@ gunicorn twitoff:APP -t 120
 
 ## Interactive U.I. made with NES-style CSS Framework.
 
-![img1](../img1.png)
+<p align="center">
+  <h2>HOME</h2>
+  <img src="https://raw.githubusercontent.com/andronikmk/TwitOff/master/img/img1.png">
+</p>
