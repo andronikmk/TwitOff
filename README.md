@@ -24,7 +24,7 @@ pipenv shell
 gunicorn twitoff:APP -t 120
 ```
 
-## Interactive U.I. made with NES-style CSS Framework.
+### Interactive UI made with NES-style CSS Framework.
 
 <p align="center">
   <h4>Home Page</h4>
